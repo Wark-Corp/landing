@@ -45,7 +45,7 @@ const Header: React.FC = () => {
                             </li>
                         ))}
                         <li>
-                            <Link href="#cta" className="text-white bg-black hover:bg-gray-900 px-8 py-3 rounded-full transition-colors font-medium">
+                            <Link href="https://discord.gg/tJ8gp389EB" target="_blank" rel="noopener noreferrer" className="text-white bg-black hover:bg-gray-900 px-8 py-3 rounded-full transition-colors font-medium">
                                 Discord
                             </Link>
                         </li>
