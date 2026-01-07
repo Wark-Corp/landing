@@ -1,12 +1,17 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import React from 'react';
+import { useLanguage } from '@/context/LanguageContext';
 
 import { siteDetails } from '@/data/siteDetails';
 import { footerDetails } from '@/data/footer';
 import { getPlatformIconByName } from '@/utils';
 
 const Footer: React.FC = () => {
+    const { t } = useLanguage();
+
     return (
         <footer className="bg-hero-background text-foreground py-10">
             <div className="max-w-7xl w-full mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -24,17 +29,21 @@ const Footer: React.FC = () => {
                         </h3>
                     </Link>
                     <p className="mt-3.5 text-foreground-accent">
-                        {footerDetails.subheading}
+                        {t.hero.subheading}
                     </p>
                 </div>
                 <div>
                     <h4 className="text-lg font-semibold mb-4">Enlaces</h4>
                     <ul className="text-foreground-accent">
-                        {footerDetails.quickLinks.map(link => (
-                            <li key={link.text} className="mb-2">
-                                <Link href={link.url} className="hover:text-foreground">{link.text}</Link>
-                            </li>
-                        ))}
+                        <li className="mb-2">
+                            <Link href="#features" className="hover:text-foreground">{t.menu.features}</Link>
+                        </li>
+                        <li className="mb-2">
+                            <Link href="#pricing" className="hover:text-foreground">{t.menu.pricing}</Link>
+                        </li>
+                        <li className="mb-2">
+                            <Link href="#testimonials" className="hover:text-foreground">{t.menu.testimonials}</Link>
+                        </li>
                     </ul>
                 </div>
                 <div>
@@ -64,7 +73,7 @@ const Footer: React.FC = () => {
                 </div>
             </div>
             <div className="mt-8 md:text-center text-foreground-accent px-6">
-                <p>Copyright &copy; {new Date().getFullYear()} {siteDetails.siteName}. Todos los derechos reservados.</p>
+                <p>Copyright &copy; {new Date().getFullYear()} {siteDetails.siteName}. {t.footer.rights}</p>
                 <p className="text-sm mt-2 text-gray-500">Hecho con &hearts; por <a href="https://dario.warkcorp.com" target="_blank">Daío57923_</a></p>
             </div>
         </footer>
