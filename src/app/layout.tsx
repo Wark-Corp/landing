@@ -36,6 +36,10 @@ export const metadata: Metadata = {
   },
 };
 
+import { LanguageProvider } from "@/context/LanguageContext";
+
+// ... (imports)
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -46,12 +50,14 @@ export default function RootLayout({
       <body
         className={`${manrope.className} ${sourceSans.className} antialiased`}
       >
-        {siteDetails.googleAnalyticsId && <GoogleAnalytics gaId={siteDetails.googleAnalyticsId} />}
-        <Header />
-        <main>
-          {children}
-        </main>
-        <Footer />
+        <LanguageProvider>
+          {siteDetails.googleAnalyticsId && <GoogleAnalytics gaId={siteDetails.googleAnalyticsId} />}
+          <Header />
+          <main>
+            {children}
+          </main>
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   );
