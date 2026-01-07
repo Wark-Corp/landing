@@ -8,18 +8,18 @@ import { HiOutlineXMark, HiBars3, HiChevronDown } from 'react-icons/hi2';
 
 import Container from './Container';
 import { siteDetails } from '@/data/siteDetails';
-import { menuItems } from '@/data/menuItems';
+import { useLanguage } from '@/context/LanguageContext';
 
 const Header: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const [lang, setLang] = useState('ES');
+    const { language, setLanguage, t } = useLanguage();
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     };
 
-    const changeLang = (newLang: string) => {
-        setLang(newLang);
+    const changeLang = (newLang: 'ES' | 'EN') => {
+        setLanguage(newLang);
     };
 
     return (
@@ -42,23 +42,31 @@ const Header: React.FC = () => {
 
                     {/* Desktop Menu */}
                     <ul className="hidden md:flex space-x-6 items-center">
-                        {menuItems.map(item => (
-                            <li key={item.text}>
-                                <Link href={item.url} className="text-foreground hover:text-foreground-accent transition-colors">
-                                    {item.text}
-                                </Link>
-                            </li>
-                        ))}
+                        <li>
+                            <Link href="#features" className="text-foreground hover:text-foreground-accent transition-colors">
+                                {t.menu.features}
+                            </Link>
+                        </li>
+                        <li>
+                            <Link href="#pricing" className="text-foreground hover:text-foreground-accent transition-colors">
+                                {t.menu.pricing}
+                            </Link>
+                        </li>
+                        <li>
+                            <Link href="#testimonials" className="text-foreground hover:text-foreground-accent transition-colors">
+                                {t.menu.testimonials}
+                            </Link>
+                        </li>
                         <li>
                             <Link href="https://discord.gg/tJ8gp389EB" target="_blank" rel="noopener noreferrer" className="text-white bg-black hover:bg-gray-900 px-8 py-3 rounded-full transition-colors font-medium">
-                                Discord
+                                {t.menu.discord}
                             </Link>
                         </li>
                         <li className="relative z-50">
                             <Menu as="div" className="relative inline-block text-left">
                                 <div>
                                     <Menu.Button className="inline-flex items-center justify-center gap-1 rounded-md bg-white px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 focus:ring-offset-gray-100">
-                                        <span className="text-xl">{lang === 'ES' ? '🇪🇸' : '🇺🇸'}</span>
+                                        <span className="text-xl">{language === 'ES' ? '🇪🇸' : '🇺🇸'}</span>
                                         <HiChevronDown className="h-4 w-4 text-gray-500" aria-hidden="true" />
                                     </Menu.Button>
                                 </div>
@@ -83,7 +91,7 @@ const Header: React.FC = () => {
                                                     >
                                                         <span className="text-xl">🇺🇸</span>
                                                         English
-                                                        {lang === 'EN' && <span className="ml-auto text-black">✓</span>}
+                                                        {language === 'EN' && <span className="ml-auto text-black">✓</span>}
                                                     </button>
                                                 )}
                                             </Menu.Item>
@@ -96,7 +104,7 @@ const Header: React.FC = () => {
                                                     >
                                                         <span className="text-xl">🇪🇸</span>
                                                         Español
-                                                        {lang === 'ES' && <span className="ml-auto text-black">✓</span>}
+                                                        {language === 'ES' && <span className="ml-auto text-black">✓</span>}
                                                     </button>
                                                 )}
                                             </Menu.Item>
@@ -110,10 +118,10 @@ const Header: React.FC = () => {
                     {/* Mobile Menu Button */}
                     <div className="md:hidden flex items-center gap-4">
                         <button
-                            onClick={() => changeLang(lang === 'ES' ? 'EN' : 'ES')}
+                            onClick={() => changeLang(language === 'ES' ? 'EN' : 'ES')}
                             className="text-foreground hover:text-foreground-accent transition-colors font-medium text-2xl"
                         >
-                            {lang === 'ES' ? '�🇸' : '�🇸'}
+                            {language === 'ES' ? '🇪🇸' : '🇺🇸'}
                         </button>
                         <button
                             onClick={toggleMenu}
@@ -145,16 +153,24 @@ const Header: React.FC = () => {
             >
                 <div id="mobile-menu" className="md:hidden bg-white shadow-lg">
                     <ul className="flex flex-col space-y-4 pt-1 pb-6 px-6">
-                        {menuItems.map(item => (
-                            <li key={item.text}>
-                                <Link href={item.url} className="text-foreground hover:text-primary block" onClick={toggleMenu}>
-                                    {item.text}
-                                </Link>
-                            </li>
-                        ))}
+                        <li>
+                            <Link href="#features" className="text-foreground hover:text-primary block" onClick={toggleMenu}>
+                                {t.menu.features}
+                            </Link>
+                        </li>
+                        <li>
+                            <Link href="#pricing" className="text-foreground hover:text-primary block" onClick={toggleMenu}>
+                                {t.menu.pricing}
+                            </Link>
+                        </li>
+                        <li>
+                            <Link href="#testimonials" className="text-foreground hover:text-primary block" onClick={toggleMenu}>
+                                {t.menu.testimonials}
+                            </Link>
+                        </li>
                         <li>
                             <Link href="https://discord.gg/tJ8gp389EB" target="_blank" rel="noopener noreferrer" className="text-black bg-primary hover:bg-primary-accent px-5 py-2 rounded-full block w-fit" onClick={toggleMenu}>
-                                Discord
+                                {t.menu.discord}
                             </Link>
                         </li>
                     </ul>
