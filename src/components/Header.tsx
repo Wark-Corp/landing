@@ -2,11 +2,13 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Fragment } from 'react';
+import React, { useState, Fragment } from 'react';
 import { Menu, Transition } from '@headlessui/react';
 import { HiOutlineXMark, HiBars3, HiChevronDown } from 'react-icons/hi2';
 
-// ... (existing imports)
+import Container from './Container';
+import { siteDetails } from '@/data/siteDetails';
+import { menuItems } from '@/data/menuItems';
 
 const Header: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
