@@ -8,9 +8,9 @@ const Pricing: React.FC = () => {
 
     // Convert object to array to match expected structure or map directly
     const tiers = [
-        t.pricing.tiers.lite,
-        t.pricing.tiers.premium,
-        t.pricing.tiers.enterprise
+        { ...t.pricing.tiers.lite, url: 'https://shop.warkcorp.com/l/lite' },
+        { ...t.pricing.tiers.premium, url: 'https://shop.warkcorp.com/l/premium' },
+        { ...t.pricing.tiers.enterprise, url: 'https://shop.warkcorp.com/l/enterprise' }
     ];
 
     return (
@@ -19,7 +19,7 @@ const Pricing: React.FC = () => {
                 <PricingColumn key={tier.name} tier={{ ...tier, price: index === 0 ? 1.99 : index === 1 ? 6.99 : 18.99 }} highlight={index === 1} />
             ))}
         </div>
-    ) 
+    )
 }
 
 export default Pricing
