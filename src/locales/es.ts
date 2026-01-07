@@ -57,7 +57,10 @@ export const es = {
                 features: ['Acceso completo a Wark', 'Acceso completo a WarkGuard', 'Creación de funciones custom', 'Sistema AntiRaid custom', 'Sistema de verificación custom', 'Recibe novedades antes que nadie', 'Hasta 5 servidores distintos', 'Soporte especializado 24/7']
             }
         },
-        cta: "Comenzar ahora"
+        cta: "Comenzar ahora",
+        included: "INCLUÍDO",
+        checkFeatures: "Revisa qué se incluye en cada plan:",
+        perMonth: "/mes"
     },
     cta: {
         heading: "Mejora tu servidor con Wark y WarkGuard",
