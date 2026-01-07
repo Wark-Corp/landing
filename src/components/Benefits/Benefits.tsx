@@ -4,7 +4,7 @@ import { benefits } from "@/data/benefits"
 
 const Benefits: React.FC = () => {
     return (
-        <div id="features">
+        <div id="features" className="pt-10 md:pt-16">
             <h2 className="sr-only">INCLUÍDO</h2>
             {benefits.map((item, index) => {
                 return <BenefitSection key={index} benefit={item} imageAtRight={index % 2 !== 0} />
