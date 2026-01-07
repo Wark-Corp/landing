@@ -13,7 +13,7 @@ const AppStoreButton = ({ dark }: { dark?: boolean }) => {
             >
                 <div className="mr-3">
                     <Image
-                        src="/images/wark-logo.png"
+                        src="/images/wark-icon.png"
                         alt="Wark Logo"
                         width={30}
                         height={30}
