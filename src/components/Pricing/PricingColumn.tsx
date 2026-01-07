@@ -1,7 +1,9 @@
 import clsx from "clsx";
+import Link from 'next/link';
 import { BsFillCheckCircleFill } from "react-icons/bs";
 
 import { IPricing } from "@/types";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface Props {
     tier: IPricing;
@@ -9,7 +11,8 @@ interface Props {
 }
 
 const PricingColumn: React.FC<Props> = ({ tier, highlight }: Props) => {
-    const { name, price, features } = tier;
+    const { name, price, features, url } = tier;
+    const { t } = useLanguage();
 
     return (
         <div className={clsx("w-full max-w-sm mx-auto bg-white rounded-xl border border-gray-200 lg:max-w-full", { "shadow-lg": highlight })}>
@@ -19,15 +22,18 @@ const PricingColumn: React.FC<Props> = ({ tier, highlight }: Props) => {
                     <span className={clsx({ "text-secondary": highlight })}>
                         {typeof price === 'number' ? `$${price}` : price}
                     </span>
-                    {typeof price === 'number' && <span className="text-lg font-normal text-gray-600">/mo</span>}
+                    {typeof price === 'number' && <span className="text-lg font-normal text-gray-600">{t.pricing.perMonth}</span>}
                 </p>
-                <button className={clsx("w-full py-3 px-4 rounded-full transition-colors", { "bg-black text-white hover:bg-gray-800": highlight, "bg-hero-background hover:bg-gray-200": !highlight })}>
-                    Comenzar ahora
-                </button>
+                <Link
+                    href={url || '#'}
+                    className={clsx("w-full py-3 px-4 rounded-full transition-colors block text-center font-medium", { "bg-black text-white hover:bg-gray-800": highlight, "bg-hero-background hover:bg-gray-200": !highlight })}
+                >
+                    {t.pricing.cta}
+                </Link>
             </div>
             <div className="p-6 mt-1">
-                <p className="font-bold mb-0">INCLUÍDO</p>
-                <p className="text-foreground-accent mb-5">Revisa qué se incluye en cada plan:</p>
+                <p className="font-bold mb-0">{t.pricing.included}</p>
+                <p className="text-foreground-accent mb-5">{t.pricing.checkFeatures}</p>
                 <ul className="space-y-4 mb-8">
                     {features.map((feature, index) => (
                         <li key={index} className="flex items-center">
