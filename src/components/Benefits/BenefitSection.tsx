@@ -88,7 +88,7 @@ const BenefitSection: React.FC<Props> = ({ benefit, imageAtRight }: Props) => {
 
                 <div className={clsx("mt-5 lg:mt-0", { "lg:order-2": imageAtRight })}>
                     <div className={clsx("w-fit flex", { "justify-start": imageAtRight, "justify-end": !imageAtRight })}>
-                        <Image src={imageSrc} alt="title" width="300" height="300" quality={100} className="lg:ml-0 w-[300px] h-auto object-contain" />
+                        <Image src={imageSrc} alt="title" width="150" height="150" quality={100} className="lg:ml-0 w-[150px] h-auto object-contain" />
                     </div>
                 </div>
             </motion.div>
