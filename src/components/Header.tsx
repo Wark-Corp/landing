@@ -12,9 +12,14 @@ import { menuItems } from '@/data/menuItems';
 
 const Header: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [lang, setLang] = useState('ES');
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
+    };
+
+    const toggleLang = () => {
+        setLang(prev => prev === 'ES' ? 'EN' : 'ES');
     };
 
     return (
@@ -36,7 +41,7 @@ const Header: React.FC = () => {
                     </Link>
 
                     {/* Desktop Menu */}
-                    <ul className="hidden md:flex space-x-6">
+                    <ul className="hidden md:flex space-x-6 items-center">
                         {menuItems.map(item => (
                             <li key={item.text}>
                                 <Link href={item.url} className="text-foreground hover:text-foreground-accent transition-colors">
@@ -49,10 +54,24 @@ const Header: React.FC = () => {
                                 Discord
                             </Link>
                         </li>
+                        <li>
+                            <button
+                                onClick={toggleLang}
+                                className="text-foreground hover:text-foreground-accent transition-colors font-medium flex items-center gap-1"
+                            >
+                                {lang === 'ES' ? '🇺🇸 EN' : '🇪🇸 ES'}
+                            </button>
+                        </li>
                     </ul>
 
                     {/* Mobile Menu Button */}
-                    <div className="md:hidden flex items-center">
+                    <div className="md:hidden flex items-center gap-4">
+                        <button
+                            onClick={toggleLang}
+                            className="text-foreground hover:text-foreground-accent transition-colors font-medium"
+                        >
+                            {lang === 'ES' ? '🇺🇸 EN' : '🇪🇸 ES'}
+                        </button>
                         <button
                             onClick={toggleMenu}
                             type="button"
@@ -91,8 +110,8 @@ const Header: React.FC = () => {
                             </li>
                         ))}
                         <li>
-                            <Link href="#cta" className="text-black bg-primary hover:bg-primary-accent px-5 py-2 rounded-full block w-fit" onClick={toggleMenu}>
-                                Comenzar ahora
+                            <Link href="https://discord.gg/tJ8gp389EB" target="_blank" rel="noopener noreferrer" className="text-black bg-primary hover:bg-primary-accent px-5 py-2 rounded-full block w-fit" onClick={toggleMenu}>
+                                Discord
                             </Link>
                         </li>
                     </ul>
