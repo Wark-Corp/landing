@@ -57,7 +57,10 @@ export const en = {
                 features: ['Full access to Wark', 'Full access to WarkGuard', 'Custom feature creation', 'Custom AntiRaid system', 'Custom verification system', 'Get updates before anyone else', 'Up to 5 different servers', '24/7 Specialized support']
             }
         },
-        cta: "Get Started Now"
+        cta: "Get Started",
+        included: "INCLUDED",
+        checkFeatures: "Check what is included in each plan:",
+        perMonth: "/mo"
     },
     cta: {
         heading: "Upgrade your server with Wark and WarkGuard",
