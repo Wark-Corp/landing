@@ -13,6 +13,17 @@
   --hero-background: #F3F3F5;
 }
 
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --primary: #FED835;
+  --secondary: #304fff;
+
+  --primary-accent: #ffe066;
+  --foreground-accent: #a3a3a3;
+  --hero-background: #171717;
+}
+
 html {
   @apply scroll-smooth;
 }
