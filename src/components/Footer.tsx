@@ -33,7 +33,7 @@ const Footer: React.FC = () => {
                     </p>
                 </div>
                 <div>
-                    <h4 className="text-lg font-semibold mb-4">Enlaces</h4>
+                    <h4 className="text-lg font-semibold mb-4">{t.footer.links}</h4>
                     <ul className="text-foreground-accent">
                         <li className="mb-2">
                             <Link href="#features" className="hover:text-foreground">{t.menu.features}</Link>
@@ -47,7 +47,7 @@ const Footer: React.FC = () => {
                     </ul>
                 </div>
                 <div>
-                    <h4 className="text-lg font-semibold mb-4">Contacta con nosotros</h4>
+                    <h4 className="text-lg font-semibold mb-4">{t.footer.contact}</h4>
 
                     {footerDetails.email && <a href={`mailto:${footerDetails.email}`} className="block text-foreground-accent hover:text-foreground">Email: {footerDetails.email}</a>}
 
