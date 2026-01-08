@@ -100,7 +100,11 @@ const AboutPage = () => {
                                         {members.map((member, idx: number) => (
                                             <div key={idx} className={`bg-zinc-950 border border-zinc-900 rounded-xl p-6 text-center transition-all duration-300 group ${cardHoverClass}`}>
                                                 <div className={`w-24 h-24 mx-auto mb-4 rounded-full bg-zinc-900 flex items-center justify-center overflow-hidden border-2 border-transparent transition-colors ${iconHoverClass}`}>
-                                                    <BsPersonCircle className="text-5xl text-zinc-700" />
+                                                    {member.avatar ? (
+                                                        <img src={member.avatar} alt={member.name} className="w-full h-full object-cover" />
+                                                    ) : (
+                                                        <BsPersonCircle className="text-5xl text-zinc-700" />
+                                                    )}
                                                 </div>
                                                 <h3 className="text-lg font-bold text-white mb-1">{member.name}</h3>
                                                 <p className="text-sm text-gray-500 mb-4">{member.role}</p>
