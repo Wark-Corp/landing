@@ -99,7 +99,7 @@ const Header: React.FC = () => {
                                                 {({ active }) => (
                                                     <button
                                                         onClick={() => changeLang('ES')}
-                                                        className={`${active ? 'bg-gray-100 dark:bg-gray-800' : 'text-gray-900 dark:text-gray-100'
+                                                        className={`${active ? 'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100' : 'text-gray-900 dark:text-gray-100'
                                                             } group flex w-full items-center rounded-lg px-2 py-2 text-sm gap-2`}
                                                     >
                                                         <span className="text-xl">🇪🇸</span>
