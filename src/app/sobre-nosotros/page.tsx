@@ -4,7 +4,7 @@ import React from 'react';
 import { useLanguage } from "@/context/LanguageContext";
 import Container from "@/components/Container";
 import { BsCpu, BsShieldCheck, BsPersonCircle } from "react-icons/bs";
-import Image from "next/image";
+
 
 const AboutPage = () => {
     const { t } = useLanguage();
@@ -69,7 +69,7 @@ const AboutPage = () => {
 
                     <div className="space-y-20">
                         {teamGroups.map((group) => {
-                            const members = t.about.team.members.filter((m: any) => m.group === group.key);
+                            const members = t.about.team.members.filter((m) => m.group === group.key);
                             if (members.length === 0) return null;
 
                             return (
@@ -80,7 +80,7 @@ const AboutPage = () => {
                                         </span>
                                     </div>
                                     <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-center">
-                                        {members.map((member: any, idx: number) => (
+                                        {members.map((member, idx: number) => (
                                             <div key={idx} className="bg-zinc-950 border border-zinc-900 rounded-xl p-6 text-center hover:border-red-900/30 transition-all duration-300 group">
                                                 <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-zinc-900 flex items-center justify-center overflow-hidden border-2 border-transparent group-hover:border-red-900/50 transition-colors">
                                                     <BsPersonCircle className="text-5xl text-zinc-700" />
