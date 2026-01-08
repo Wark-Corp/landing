@@ -152,7 +152,7 @@ export const es = {
                 support: "Equipo de Soporte"
             },
             members: [
-                { name: "Darío A.", role: "Founder & CEO", group: "executive" },
+                { name: "Darío A.", role: "Founder & CEO", group: "executive", avatar: '/images/team/dario.jpg' },
                 { name: "Thegrab M.", role: "Co-Founder, COO & CLO", group: "executive", avatar: '/images/team/thegrab.png' },
                 { name: "Trevor D.", role: "Co-Founder & CFO", group: "executive" },
                 { name: "Imanol N.", role: "CAO & CSO", group: "executive", avatar: '/images/team/imanol.png' },
