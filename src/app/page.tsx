@@ -1,3 +1,5 @@
+'use client';
+
 import Hero from "@/components/Hero";
 import Testimonials from "@/components/Testimonials";
 import Pricing from "@/components/Pricing/Pricing";
@@ -7,8 +9,11 @@ import Container from "@/components/Container";
 import Section from "@/components/Section";
 import Stats from "@/components/Stats";
 import CTA from "@/components/CTA";
+import { useLanguage } from "@/context/LanguageContext";
 
 const HomePage: React.FC = () => {
+  const { t } = useLanguage();
+
   return (
     <>
       <Hero />
@@ -17,16 +22,16 @@ const HomePage: React.FC = () => {
 
         <Section
           id="pricing"
-          title="Precios"
-          description="Compara todos nuestros planes y comprueba si alguno se adapta a ti."
+          title={t.pricing.title}
+          description={t.pricing.subtitle}
         >
           <Pricing />
         </Section>
 
         <Section
           id="testimonials"
-          title="Lo que dicen nuestros clientes"
-          description="Opiniones de nuestros clientes."
+          title={t.testimonials.title}
+          description={t.testimonials.subtitle}
         >
           <Testimonials />
         </Section>
