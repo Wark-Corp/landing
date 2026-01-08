@@ -128,5 +128,42 @@ export const es = {
                 answer: 'Puedes devolver los planes solo durante las 24 horas después de su adquisición, después de ese tiempo no aceptaremos devoluciones por políticas internas.'
             }
         ]
+    },
+    about: {
+        infrastructure: {
+            badge: "Infraestructura",
+            title: "Tecnología de Vanguardia",
+            hardware: {
+                title: "Hardware de Alto Rendimiento",
+                description: "Nuestra infraestructura incluye procesadores AMD Ryzen 9 9950X para tareas exigentes y Ryzen 9 5900X para Servidores de Juegos, asegurando máxima potencia. Los VPS están optimizados con RAM DDR5 3200MHz y almacenamiento NVMe de alta velocidad, garantizando un rendimiento excepcional y tiempos de respuesta ultrarrápidos."
+            },
+            connectivity: {
+                title: "Conectividad y Seguridad",
+                description: "Operamos con conexiones de red de alta velocidad que garantizan latencias mínimas y ancho de banda óptimo para todos nuestros servicios. Además, implementamos medidas de seguridad avanzadas, como firewalls dedicados y monitoreo constante, para proteger tu proyecto 24/7."
+            }
+        },
+        team: {
+            badge: "Nuestro Equipo",
+            title: "Conoce a Nuestro Equipo",
+            subtitle: "Humildad y compromiso para dar vida a tus ideas. Aquí, todos tienen un lugar.",
+            groups: {
+                executive: "Equipo Ejecutivo",
+                management: "Equipo de Gestión",
+                support: "Equipo de Soporte"
+            },
+            members: [
+                { name: "Darío A.", role: "Founder & CEO", group: "executive" },
+                { name: "Thegrab M.", role: "Co-Founder, COO & CLO", group: "executive" },
+                { name: "Trevor D.", role: "Co-Founder & CFO", group: "executive" },
+                { name: "Imanol N.", role: "CAO & CSO", group: "executive" },
+                { name: "Rodri H.", role: "CHRO", group: "management" },
+                { name: "David C.", role: "CTO & SysAdmin", group: "management" },
+                { name: "Dani L.", role: "Marketing & Safety", group: "support" },
+                { name: "Álex B.", role: "Safety", group: "support" },
+                { name: "Kivan N.", role: "Support", group: "support" },
+                { name: "Dennis Q.", role: "Support", group: "support" },
+                { name: "Santiago D.", role: "Support", group: "support" }
+            ]
+        }
     }
 };
