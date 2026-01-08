@@ -69,6 +69,64 @@ export const es = {
     footer: {
         rights: "Wark Corp. Todos los derechos reservados.",
         privacy: "Política de Privacidad",
-        terms: "Términos de Servicio"
+        terms: "Términos de Servicio",
+        links: "Enlaces",
+        contact: "Contacta con nosotros"
+    },
+    stats: {
+        servers: { title: "150+", description: "Servidores registrados en Wark en total." },
+        ratings: { title: "4.7", description: "En valoraciones de nuestros clientes." },
+        companies: { title: "3+", description: "Empresas gestionadas por Wark Corp." }
+    },
+    testimonials: {
+        title: "Lo que dicen nuestros clientes",
+        subtitle: "Opiniones de nuestros clientes.",
+        items: [
+            {
+                name: 'Rateing',
+                role: 'Ex-Manager de MotionMC Network',
+                message: `El mejor bot de seguridad y moderación que he probado, muy buen sistema de soporte. Lo recomiendo a todos los servidores.`,
+                avatar: '/images/testimonial-1.webp',
+            },
+            {
+                name: 'crazyCat',
+                role: 'Dueño de Heat Community',
+                message: `A nosotros nos ha gustado mucho para moderar nuestra pequeña comunidad, hace ya un tiempo que lo usamos como bot principal.`,
+                avatar: '/images/testimonial-2.webp',
+            },
+            {
+                name: 'Magros',
+                role: 'Dueño de NeverCraft Network',
+                message: `Apenas comenzamos nuestra network y nos ha servido mucho por el tema de configuración de Discord y Minecraft. Muy bueno.`,
+                avatar: '/images/testimonial-3.webp',
+            },
+        ]
+    },
+    faq: {
+        title: "Preguntas frecuentes",
+        subtitle: "FAQS",
+        moreQuestions: "¿Tienes más preguntas? ¡Pregúntanos directamente!",
+        items: [
+            {
+                question: `¿Necesitas ayuda?`,
+                answer: 'Puedes unirte a nuestro servidor oficial de Discord dedicado a soporte. Allí podrás crear un ticket para comunicarte con un miembro de nuestro equipo.',
+            },
+            {
+                question: `¿Experimentas caídas inesperadas o problemas de respuesta?`,
+                answer: 'Si estás experimentando falta de respuesta por parte de nuestros servicios en interacciones o comandos puede deberse a un mantenimiento o problema de red. Asegúrate de revisar nuestra página de estado para estar actualizado.',
+            },
+            {
+                question: '¿Qué hago si encuentro un bug/error en nuestros servicios?',
+                answer: `Si encuentras un fallo en cualquiera de nuestros servicios, páginas webs o cualquier cosa relacionada con la empresa estás en la obligación de reportarlo ante nuestro equipo. Serás recompensado dependiendo de la gravedad del fallo que encontraste.`
+            },
+            {
+                question: '¿Quieres actualizar tu plan para acceder a las ventajas?',
+                answer: 'Puedes contratar un plan desde https://shop.warkcorp.com y elegir el que mejor se adapte a ti o a tu servidor de Discord. Si tienes preguntas no dudes en contactarnos.',
+            },
+            {
+                question: '¿Qué sucede si quiero efectuar una devolución?',
+                answer: 'Puedes devolver los planes solo durante las 24 horas después de su adquisición, después de ese tiempo no aceptaremos devoluciones por políticas internas.'
+            }
+        ]
     }
 };
