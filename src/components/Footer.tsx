@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import React from 'react';
 import { useLanguage } from '@/context/LanguageContext';
+import ThemeToggle from './ThemeToggle';
 
 import { siteDetails } from '@/data/siteDetails';
 import { footerDetails } from '@/data/footer';
@@ -70,6 +71,9 @@ const Footer: React.FC = () => {
                             })}
                         </div>
                     )}
+                    <div className="mt-5">
+                        <ThemeToggle />
+                    </div>
                 </div>
             </div>
             <div className="mt-8 md:text-center text-foreground-accent px-6">
