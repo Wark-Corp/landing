@@ -3,25 +3,27 @@ import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/react
 import { BiMinus, BiPlus } from "react-icons/bi";
 
 import SectionTitle from "./SectionTitle";
-import { faqs } from "@/data/faq";
+import { useLanguage } from "@/context/LanguageContext";
 
 const FAQ: React.FC = () => {
+    const { t } = useLanguage();
+
     return (
         <section id="faq" className="py-10 lg:py-20">
             <div className="flex flex-col lg:flex-row gap-10">
                 <div className="">
-                    <p className="hidden lg:block text-foreground-accent">FAQS</p>
+                    <p className="hidden lg:block text-foreground-accent">{t.faq.subtitle}</p>
                     <SectionTitle>
-                        <h2 className="my-3 !leading-snug lg:max-w-sm text-center lg:text-left">Preguntas frecuentes</h2>
+                        <h2 className="my-3 !leading-snug lg:max-w-sm text-center lg:text-left">{t.faq.title}</h2>
                     </SectionTitle>
                     <p className="lg:mt-10 text-foreground-accent text-center lg:text-left">
-                        ¿Tienes más preguntas? ¡Pregúntanos directamente!
+                        {t.faq.moreQuestions}
                     </p>
-                    <a href="mailto:" className="mt-3 block text-xl lg:text-4xl text-secondary font-semibold hover:underline text-center lg:text-left">support@warkcorp.com</a>
+                    <a href="mailto:support@warkcorp.com" className="mt-3 block text-xl lg:text-4xl text-secondary font-semibold hover:underline text-center lg:text-left">support@warkcorp.com</a>
                 </div>
 
                 <div className="w-full lg:max-w-2xl mx-auto border-b">
-                    {faqs.map((faq, index) => (
+                    {t.faq.items.map((faq, index) => (
                         <div key={index} className="mb-7">
                             <Disclosure>
                                 {({ open }) => (
