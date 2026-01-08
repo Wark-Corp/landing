@@ -28,10 +28,10 @@ const Hero: React.FC = () => {
                     {t.hero.subheading}
                 </p>
                 <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a href="#pricing" className="bg-black text-white px-8 py-3 rounded-full font-medium hover:bg-gray-800 transition-colors w-full sm:w-auto">
+                    <a href="#pricing" className="bg-black text-white px-8 py-3 rounded-full font-medium hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 transition-colors w-full sm:w-auto">
                         {t.hero.ctaPrimary}
                     </a>
-                    <a href="#features" className="bg-white text-black border border-gray-200 px-8 py-3 rounded-full font-medium hover:bg-gray-50 transition-colors w-full sm:w-auto">
+                    <a href="#features" className="bg-white text-black border border-gray-200 px-8 py-3 rounded-full font-medium hover:bg-gray-50 dark:bg-transparent dark:text-white dark:border-gray-700 dark:hover:bg-gray-800 transition-colors w-full sm:w-auto">
                         {t.hero.ctaSecondary}
                     </a>
                 </div>
