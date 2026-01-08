@@ -153,7 +153,7 @@ export const en = {
             },
             members: [
                 { name: "Darío A.", role: "Founder & CEO", group: "executive" },
-                { name: "Thegrab M.", role: "Co-Founder, COO & CLO", group: "executive" },
+                { name: "Thegrab M.", role: "Co-Founder, COO & CLO", group: "executive", avatar: '/images/team/thegrab.png' },
                 { name: "Trevor D.", role: "Co-Founder & CFO", group: "executive" },
                 { name: "Imanol N.", role: "CAO & CSO", group: "executive" },
                 { name: "Rodri H.", role: "CHRO", group: "management" },
