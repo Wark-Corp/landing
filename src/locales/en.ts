@@ -69,6 +69,64 @@ export const en = {
     footer: {
         rights: "Wark Corp. All rights reserved.",
         privacy: "Privacy Policy",
-        terms: "Terms of Service"
+        terms: "Terms of Service",
+        links: "Links",
+        contact: "Contact us"
+    },
+    stats: {
+        servers: { title: "150+", description: "Total servers registered in Wark." },
+        ratings: { title: "4.7", description: "In ratings from our clients." },
+        companies: { title: "3+", description: "Companies managed by Wark Corp." }
+    },
+    testimonials: {
+        title: "What our clients say",
+        subtitle: "Reviews from our clients.",
+        items: [
+            {
+                name: 'Rateing',
+                role: 'Ex-Manager of MotionMC Network',
+                message: `The best security and moderation bot I have tried, very good support system. I recommend it to all servers.`,
+                avatar: '/images/testimonial-1.webp',
+            },
+            {
+                name: 'crazyCat',
+                role: 'Owner of Heat Community',
+                message: `We really liked it for moderating our small community, we have been using it as our main bot for a while now.`,
+                avatar: '/images/testimonial-2.webp',
+            },
+            {
+                name: 'Magros',
+                role: 'Owner of NeverCraft Network',
+                message: `We just started our network and it has been very useful for Discord and Minecraft configuration. Very good.`,
+                avatar: '/images/testimonial-3.webp',
+            },
+        ]
+    },
+    faq: {
+        title: "Frequently Asked Questions",
+        subtitle: "FAQS",
+        moreQuestions: "Have more questions? Ask us directly!",
+        items: [
+            {
+                question: `Need help?`,
+                answer: 'You can join our official Discord server dedicated to support. There you can create a ticket to communicate with a member of our team.',
+            },
+            {
+                question: `Experiencing unexpected downtime or response issues?`,
+                answer: 'If you are experiencing a lack of response from our services in interactions or commands, it may be due to maintenance or a network issue. Make sure to check our status page to stay updated.',
+            },
+            {
+                question: 'What do I do if I find a bug/error in your services?',
+                answer: `If you find a bug in any of our services, websites, or anything related to the company, you are obligated to report it to our team. You will be rewarded depending on the severity of the bug you found.`
+            },
+            {
+                question: 'Do you want to upgrade your plan to access the benefits?',
+                answer: 'You can purchase a plan from https://shop.warkcorp.com and choose the one that best suits you or your Discord server. If you have questions, do not hesitate to contact us.',
+            },
+            {
+                question: 'What happens if I want to request a refund?',
+                answer: 'You can return plans only within 24 hours of purchase; after that time, we will not accept returns due to internal policies.'
+            }
+        ]
     }
 };
