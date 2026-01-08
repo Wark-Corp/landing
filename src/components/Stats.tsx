@@ -10,17 +10,17 @@ const Stats: React.FC = () => {
         {
             title: t.stats.servers.title,
             description: t.stats.servers.description,
-            icon: <BsBarChartFill className="text-3xl sm:text-4xl text-black" />,
+            icon: <BsBarChartFill className="text-3xl sm:text-4xl text-black dark:text-white" />,
         },
         {
             title: t.stats.ratings.title,
             description: t.stats.ratings.description,
-            icon: <BsStarFill className="text-3xl sm:text-4xl text-black" />,
+            icon: <BsStarFill className="text-3xl sm:text-4xl text-black dark:text-white" />,
         },
         {
             title: t.stats.companies.title,
             description: t.stats.companies.description,
-            icon: <BsGlobe className="text-3xl sm:text-4xl text-black" />,
+            icon: <BsGlobe className="text-3xl sm:text-4xl text-black dark:text-white" />,
         },
     ];
 
