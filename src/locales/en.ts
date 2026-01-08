@@ -109,18 +109,18 @@ export const en = {
         items: [
             {
                 question: `Need help?`,
-                answer: 'You can join our official Discord server dedicated to support. There you can create a ticket to communicate with a member of our team.',
+                answer: 'You can join our official support Discord server. There you can open a ticket to communicate with a member of our team.',
             },
             {
                 question: `Experiencing unexpected downtime or response issues?`,
-                answer: 'If you are experiencing a lack of response from our services in interactions or commands, it may be due to maintenance or a network issue. Make sure to check our status page to stay updated.',
+                answer: 'If you are experiencing a lack of response from our services in interactions or commands, it may be due to maintenance or a network issue. Be sure to check our status page to stay updated.',
             },
             {
                 question: 'What do I do if I find a bug/error in your services?',
-                answer: `If you find a bug in any of our services, websites, or anything related to the company, you are obligated to report it to our team. You will be rewarded depending on the severity of the bug you found.`
+                answer: `If you find a bug in any of our services, websites, or anything related to the company, you are obligated to report it to our team. You will be rewarded depending on the severity of the bug found.`
             },
             {
-                question: 'Do you want to upgrade your plan to access the benefits?',
+                question: 'Do you want to upgrade your plan to access perks?',
                 answer: 'You can purchase a plan from https://shop.warkcorp.com and choose the one that best suits you or your Discord server. If you have questions, do not hesitate to contact us.',
             },
             {
@@ -128,5 +128,42 @@ export const en = {
                 answer: 'You can return plans only within 24 hours of purchase; after that time, we will not accept returns due to internal policies.'
             }
         ]
+    },
+    about: {
+        infrastructure: {
+            badge: "Infrastructure",
+            title: "Cutting-Edge Technology",
+            hardware: {
+                title: "High Performance Hardware",
+                description: "Our infrastructure includes AMD Ryzen 9 9950X processors for demanding tasks and Ryzen 9 5900X for Game Servers, ensuring maximum power. VPS are optimized with DDR5 3200MHz RAM and high-speed NVMe storage, guaranteeing exceptional performance and ultra-fast response times."
+            },
+            connectivity: {
+                title: "Connectivity & Security",
+                description: "We operate with high-speed network connections guaranteeing minimal latency and optimal bandwidth for all our services. Additionally, we implement advanced security measures, such as dedicated firewalls and constant monitoring, to protect your project 24/7."
+            }
+        },
+        team: {
+            badge: "Our Team",
+            title: "Meet Our Team",
+            subtitle: "Humility and commitment to bring your ideas to life. Here, everyone has a place.",
+            groups: {
+                executive: "Executive Team",
+                management: "Management Team",
+                support: "Support Team"
+            },
+            members: [
+                { name: "Darío A.", role: "Founder & CEO", group: "executive" },
+                { name: "Thegrab M.", role: "Co-Founder, COO & CLO", group: "executive" },
+                { name: "Trevor D.", role: "Co-Founder & CFO", group: "executive" },
+                { name: "Imanol N.", role: "CAO & CSO", group: "executive" },
+                { name: "Rodri H.", role: "CHRO", group: "management" },
+                { name: "David C.", role: "CTO & SysAdmin", group: "management" },
+                { name: "Dani L.", role: "Marketing & Safety", group: "support" },
+                { name: "Álex B.", role: "Safety", group: "support" },
+                { name: "Kivan N.", role: "Support", group: "support" },
+                { name: "Dennis Q.", role: "Support", group: "support" },
+                { name: "Santiago D.", role: "Support", group: "support" }
+            ]
+        }
     }
 };
