@@ -58,7 +58,7 @@ const Header: React.FC = () => {
                             </Link>
                         </li>
                         <li>
-                            <Link href="https://discord.gg/tJ8gp389EB" target="_blank" rel="noopener noreferrer" className="text-white bg-black hover:bg-gray-900 px-8 py-3 rounded-full transition-colors font-medium">
+                            <Link href="https://discord.gg/tJ8gp389EB" target="_blank" rel="noopener noreferrer" className="text-white bg-black hover:bg-gray-900 dark:bg-white dark:text-black dark:hover:bg-gray-200 px-8 py-3 rounded-full transition-colors font-medium">
                                 {t.menu.discord}
                             </Link>
                         </li>
@@ -86,12 +86,12 @@ const Header: React.FC = () => {
                                                 {({ active }) => (
                                                     <button
                                                         onClick={() => changeLang('EN')}
-                                                        className={`${active ? 'bg-gray-100' : 'text-gray-900'
+                                                        className={`${active ? 'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100' : 'text-gray-900 dark:text-gray-100'
                                                             } group flex w-full items-center rounded-lg px-2 py-2 text-sm gap-2`}
                                                     >
                                                         <span className="text-xl">🇺🇸</span>
                                                         English
-                                                        {language === 'EN' && <span className="ml-auto text-black">✓</span>}
+                                                        {language === 'EN' && <span className="ml-auto text-black dark:text-white">✓</span>}
                                                     </button>
                                                 )}
                                             </Menu.Item>
@@ -104,7 +104,7 @@ const Header: React.FC = () => {
                                                     >
                                                         <span className="text-xl">🇪🇸</span>
                                                         Español
-                                                        {language === 'ES' && <span className="ml-auto text-black">✓</span>}
+                                                        {language === 'ES' && <span className="ml-auto text-black dark:text-white">✓</span>}
                                                     </button>
                                                 )}
                                             </Menu.Item>
