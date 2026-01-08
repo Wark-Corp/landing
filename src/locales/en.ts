@@ -155,7 +155,7 @@ export const en = {
                 { name: "Darío A.", role: "Founder & CEO", group: "executive" },
                 { name: "Thegrab M.", role: "Co-Founder, COO & CLO", group: "executive", avatar: '/images/team/thegrab.png' },
                 { name: "Trevor D.", role: "Co-Founder & CFO", group: "executive" },
-                { name: "Imanol N.", role: "CAO & CSO", group: "executive" },
+                { name: "Imanol N.", role: "CAO & CSO", group: "executive", avatar: '/images/team/imanol.png' },
                 { name: "Rodri H.", role: "CHRO", group: "management" },
                 { name: "David C.", role: "CTO & SysAdmin", group: "management" },
                 { name: "Dani L.", role: "Marketing & Safety", group: "support" },
