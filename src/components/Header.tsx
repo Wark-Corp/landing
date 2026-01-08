@@ -25,7 +25,7 @@ const Header: React.FC = () => {
     return (
         <header className="bg-transparent fixed top-0 left-0 right-0 md:absolute z-50 mx-auto w-full">
             <Container className="!px-0">
-                <nav className="shadow-md md:shadow-none bg-white md:bg-transparent mx-auto flex justify-between items-center py-2 px-5 md:py-10">
+                <nav className="shadow-md md:shadow-none bg-white dark:bg-gray-900 md:bg-transparent md:dark:bg-transparent mx-auto flex justify-between items-center py-2 px-5 md:py-10">
                     {/* Logo */}
                     <Link href="/" className="flex items-center gap-2">
                         <Image
@@ -65,7 +65,7 @@ const Header: React.FC = () => {
                         <li className="relative z-50">
                             <Menu as="div" className="relative inline-block text-left">
                                 <div>
-                                    <Menu.Button className="inline-flex items-center justify-center gap-1 rounded-md bg-white px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 focus:ring-offset-gray-100">
+                                    <Menu.Button className="inline-flex items-center justify-center gap-1 rounded-md bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-100 dark:focus:ring-offset-gray-900">
                                         <span className="text-xl">{language === 'ES' ? '🇪🇸' : '🇺🇸'}</span>
                                         <HiChevronDown className="h-4 w-4 text-gray-500" aria-hidden="true" />
                                     </Menu.Button>
@@ -80,7 +80,7 @@ const Header: React.FC = () => {
                                     leaveFrom="transform opacity-100 scale-100"
                                     leaveTo="transform opacity-0 scale-95"
                                 >
-                                    <Menu.Items className="absolute right-0 mt-2 w-40 origin-top-right divide-y divide-gray-100 rounded-xl bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                                    <Menu.Items className="absolute right-0 mt-2 w-40 origin-top-right divide-y divide-gray-100 dark:divide-gray-800 rounded-xl bg-white dark:bg-gray-900 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none border border-gray-100 dark:border-gray-800">
                                         <div className="px-1 py-1">
                                             <Menu.Item>
                                                 {({ active }) => (
@@ -99,7 +99,7 @@ const Header: React.FC = () => {
                                                 {({ active }) => (
                                                     <button
                                                         onClick={() => changeLang('ES')}
-                                                        className={`${active ? 'bg-gray-100' : 'text-gray-900'
+                                                        className={`${active ? 'bg-gray-100 dark:bg-gray-800' : 'text-gray-900 dark:text-gray-100'
                                                             } group flex w-full items-center rounded-lg px-2 py-2 text-sm gap-2`}
                                                     >
                                                         <span className="text-xl">🇪🇸</span>
@@ -151,7 +151,7 @@ const Header: React.FC = () => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
             >
-                <div id="mobile-menu" className="md:hidden bg-white shadow-lg">
+                <div id="mobile-menu" className="md:hidden bg-white dark:bg-gray-900 shadow-lg border-b border-gray-100 dark:border-gray-800">
                     <ul className="flex flex-col space-y-4 pt-1 pb-6 px-6">
                         <li>
                             <Link href="#features" className="text-foreground hover:text-primary block" onClick={toggleMenu}>
