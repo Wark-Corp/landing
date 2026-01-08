@@ -1,6 +1,29 @@
-import { stats } from "@/data/stats"
+'use client';
+
+import { useLanguage } from "@/context/LanguageContext";
+import { BsBarChartFill, BsStarFill, BsGlobe } from "react-icons/bs";
 
 const Stats: React.FC = () => {
+    const { t } = useLanguage();
+
+    const stats = [
+        {
+            title: t.stats.servers.title,
+            description: t.stats.servers.description,
+            icon: <BsBarChartFill className="text-3xl sm:text-4xl text-black" />,
+        },
+        {
+            title: t.stats.ratings.title,
+            description: t.stats.ratings.description,
+            icon: <BsStarFill className="text-3xl sm:text-4xl text-black" />,
+        },
+        {
+            title: t.stats.companies.title,
+            description: t.stats.companies.description,
+            icon: <BsGlobe className="text-3xl sm:text-4xl text-black" />,
+        },
+    ];
+
     return (
         <section id="stats" className="py-10 lg:py-20">
             <div className="grid sm:grid-cols-3 gap-8">
