@@ -131,15 +131,15 @@ export const en = {
     },
     about: {
         infrastructure: {
-            badge: "Infrastructure",
-            title: "Cutting-Edge Technology",
+            badge: "Technology",
+            title: "Our Bots",
             hardware: {
-                title: "High Performance Hardware",
-                description: "Our infrastructure includes AMD Ryzen 9 9950X processors for demanding tasks and Ryzen 9 5900X for Game Servers, ensuring maximum power. VPS are optimized with DDR5 3200MHz RAM and high-speed NVMe storage, guaranteeing exceptional performance and ultra-fast response times."
+                title: "Wark: Advanced Moderation",
+                description: "Our moderation bot, Wark, is designed to simplify your community management. It processes events in real-time to maintain order and execute commands with zero latency."
             },
             connectivity: {
-                title: "Connectivity & Security",
-                description: "We operate with high-speed network connections guaranteeing minimal latency and optimal bandwidth for all our services. Additionally, we implement advanced security measures, such as dedicated firewalls and constant monitoring, to protect your project 24/7."
+                title: "WarkGuard: Security Shield",
+                description: "WarkGuard is your first line of defense. This security bot protects your server against raids, spam, and malicious attacks, ensuring a safe environment 24/7."
             }
         },
         team: {
