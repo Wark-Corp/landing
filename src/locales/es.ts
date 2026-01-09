@@ -162,7 +162,8 @@ export const es = {
                 { name: "Álex B.", role: "Safety", group: "support" },
                 { name: "Kivan N.", role: "Support", group: "support" },
                 { name: "Dennis Q.", role: "Support", group: "support" },
-                { name: "Santiago D.", role: "Support", group: "support" }
+                { name: "Santiago D.", role: "Support", group: "support" },
+                { name: "Eloi B.", role: "Support", group: "support" }
             ]
         }
     }
