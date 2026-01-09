@@ -154,16 +154,16 @@ export const en = {
             members: [
                 { name: "Darío A.", role: "Founder & CEO", group: "executive", avatar: '/images/team/dario.jpg' },
                 { name: "Thegrab M.", role: "Co-Founder, COO & CLO", group: "executive", avatar: '/images/team/thegrab.png' },
-                { name: "Trevor D.", role: "Co-Founder & CFO", group: "executive" },
+                { name: "Trevor D.", role: "Co-Founder & CFO", group: "executive", avatar: '/images/team/tester.webp' },
                 { name: "Imanol N.", role: "CAO & CSO", group: "executive", avatar: '/images/team/imanol.png' },
-                { name: "Rodri H.", role: "CHRO", group: "management" },
-                { name: "David C.", role: "CTO & SysAdmin", group: "management" },
-                { name: "Dani L.", role: "Marketing & Safety", group: "support" },
-                { name: "Álex B.", role: "Safety", group: "support" },
-                { name: "Kivan N.", role: "Support", group: "support" },
-                { name: "Dennis Q.", role: "Support", group: "support" },
-                { name: "Santiago D.", role: "Support", group: "support" },
-                { name: "Eloi B.", role: "Support", group: "support" }
+                { name: "Rodri H.", role: "CHRO", group: "management" avatar: 'images/team/rateing.webp' },
+                { name: "David C.", role: "CTO & System Administrator", group: "management", avatar: '/images/team/crazycat.webp' },
+                { name: "Dani L.", role: "Marketing & Safety", group: "support", avatar: '/images/team/danil.webp' },
+                { name: "Álex B.", role: "Safety", group: "support", avatar: '/images/team/alexb.webp' },
+                { name: "Kivan N.", role: "Support", group: "support", avatar: '/images/team/kivan.webp' },
+                { name: "Dennis Q.", role: "Support", group: "support", avatar: '/images/team/dennis.webp' },
+                { name: "Santiago D.", role: "Support", group: "support", avatar: '/images/team/santiago.webp' },
+                { name: "Eloi B.", role: "Support", group: "support", avatar: '/images/team/eloi.webp' }
             ]
         }
     }
