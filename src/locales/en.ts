@@ -144,19 +144,19 @@ export const en = {
         },
         team: {
             badge: "Our Team",
-            title: "Meet Our Team",
-            subtitle: "Humility and commitment to bring your ideas to life. Here, everyone has a place.",
+            title: "The Wark Corporation Team",
+            subtitle: "Meet the Team of the bussiness.",
             groups: {
                 executive: "Executive Team",
                 management: "Management Team",
-                support: "Support Team"
+                support: "Support & other Teams"
             },
             members: [
                 { name: "Darío A.", role: "Founder & CEO", group: "executive", avatar: '/images/team/dario.jpg' },
                 { name: "Thegrab M.", role: "Co-Founder, COO & CLO", group: "executive", avatar: '/images/team/thegrab.png' },
                 { name: "Trevor D.", role: "Co-Founder & CFO", group: "executive", avatar: '/images/team/tester.webp' },
                 { name: "Imanol N.", role: "CAO & CSO", group: "executive", avatar: '/images/team/imanol.png' },
-                { name: "Rodri H.", role: "CHRO", group: "management", avatar: 'images/team/rateing.webp' },
+                { name: "Rodri H.", role: "CHRO & CDO", group: "management", avatar: 'images/team/rateing.webp' },
                 { name: "David C.", role: "CTO & System Administrator", group: "management", avatar: '/images/team/crazycat.webp' },
                 { name: "Dani L.", role: "Support, Marketing & Safety", group: "support", avatar: '/images/team/danil.webp' },
                 { name: "Álex B.", role: "Support & Safety", group: "support", avatar: '/images/team/alexb.webp' },
