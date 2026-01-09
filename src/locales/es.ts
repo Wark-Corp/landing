@@ -144,12 +144,12 @@ export const es = {
         },
         team: {
             badge: "Nuestro Equipo",
-            title: "Conoce a Nuestro Equipo",
-            subtitle: "Humildad y compromiso para dar vida a tus ideas. Aquí, todos tienen un lugar.",
+            title: "El Equipo de Wark Corporation",
+            subtitle: "Conoce a nuestro equipo detrás de la empresa.",
             groups: {
                 executive: "Equipo Ejecutivo",
                 management: "Equipo de Gestión",
-                support: "Equipo de Soporte"
+                support: "Equipo de Soporte y otros"
             },
             members: [
                 { name: "Darío A.", role: "Founder & CEO", group: "executive", avatar: '/images/team/dario.jpg' },
