@@ -8,6 +8,9 @@ import { BsCpu, BsShieldCheck, BsPersonCircle } from "react-icons/bs";
 import Image from "next/image";
 
 
+
+export const dynamic = 'force-dynamic';
+
 const AboutPage = () => {
     const { t } = useLanguage();
 

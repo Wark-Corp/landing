@@ -58,6 +58,11 @@ const Header: React.FC = () => {
                             </Link>
                         </li>
                         <li>
+                            <Link href="/about" className="text-foreground hover:text-foreground-accent transition-colors">
+                                {t.menu.about}
+                            </Link>
+                        </li>
+                        <li>
                             <Link href="https://discord.gg/tJ8gp389EB" target="_blank" rel="noopener noreferrer" className="text-white bg-black hover:bg-gray-900 dark:bg-white dark:text-black dark:hover:bg-gray-200 px-8 py-3 rounded-full transition-colors font-medium">
                                 {t.menu.discord}
                             </Link>

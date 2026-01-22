@@ -46,7 +46,7 @@ const Footer: React.FC = () => {
                             <Link href="#testimonials" className="hover:text-foreground">{t.menu.testimonials}</Link>
                         </li>
                         <li className="mb-2">
-                            <Link href="/sobre-nosotros" className="hover:text-foreground">{t.menu.about}</Link>
+                            <Link href="/about" className="hover:text-foreground">{t.menu.about}</Link>
                         </li>
                     </ul>
                 </div>
