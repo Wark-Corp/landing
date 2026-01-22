@@ -1,6 +1,6 @@
 export const es = {
     hero: {
-        heading: 'Rápido, Seguro y Simple',
+        heading: 'Wark Corp: Versión Actualizada',
         subheading: 'Servicios de seguridad, protección y moderación para servidores de Discord mediante Wark y WarkGuard.',
         ctaPrimary: 'Comenzar Ahora',
         ctaSecondary: 'Más Información',
