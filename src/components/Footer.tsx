@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import React from 'react';
 import { useLanguage } from '@/context/LanguageContext';
-import ThemeToggle from './ThemeToggle';
+// import ThemeToggle from './ThemeToggle';
 
 import { siteDetails } from '@/data/siteDetails';
 import { footerDetails } from '@/data/footer';
@@ -75,7 +75,7 @@ const Footer: React.FC = () => {
                         </div>
                     )}
                     <div className="mt-5">
-                        <ThemeToggle />
+                        {/* ThemeToggle removed to enforce dark mode */}
                     </div>
                 </div>
             </div>
