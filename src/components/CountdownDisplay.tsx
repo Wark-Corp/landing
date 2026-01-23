@@ -67,7 +67,7 @@ export default function CountdownDisplay() {
                 </div>
                 <div className="mt-4 text-center">
                     <span className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400">
-                        {(timeLeft.progress || 0).toFixed(4)}%
+                        {(timeLeft.progress || 0).toFixed(1)}%
                     </span>
                     <p className="text-xs text-gray-500 uppercase font-bold mt-1">Completado</p>
                 </div>
