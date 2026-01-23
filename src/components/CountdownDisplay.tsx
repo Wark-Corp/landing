@@ -62,7 +62,7 @@ export default function CountdownDisplay() {
     }
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen text-center p-4">
+        <div className="flex flex-col items-center justify-center min-h-screen text-center p-4 pt-32">
             <div className="mb-12">
                 <h1 className="text-[8rem] md:text-[12rem] leading-none font-bold font-manrope tabular-nums tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400 drop-shadow-2xl border-text">
                     {timeLeft.days}
@@ -120,13 +120,12 @@ export default function CountdownDisplay() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {timeLeft.subjects?.map((sub: ISubjectStats) => (
                         <div key={sub.subject} className="bg-gray-900 border border-gray-800 rounded-2xl p-6 relative overflow-hidden group hover:border-blue-500/30 transition-colors">
-                            <div className="flex justify-between items-end mb-4">
+                            <div className="flex justify-between items-center mb-4">
                                 <div>
                                     <h3 className="text-xl font-bold text-gray-200">{sub.subject}</h3>
-                                    <p className="text-sm text-gray-500">Horas restantes</p>
                                 </div>
                                 <span className="text-4xl font-bold text-blue-500 tabular-nums">
-                                    {sub.remainingHours}
+                                    {sub.remainingHours}h
                                 </span>
                             </div>
 
