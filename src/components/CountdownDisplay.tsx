@@ -2,7 +2,13 @@
 
 import { useEffect, useState } from 'react';
 
-import { getRemainingSchoolTime, getSchoolYearProgress } from '@/utils/schoolTimer';
+import { getRemainingSchoolTime, getSchoolYearProgress, getSubjectStats } from '@/utils/schoolTimer';
+
+interface ISubjectStats {
+    subject: string;
+    remainingHours: number;
+    progress: number;
+}
 
 interface ITimeLeft {
     days: number;
@@ -12,18 +18,27 @@ interface ITimeLeft {
     remainingMs?: number;
     isComplete: boolean;
     progress?: number;
+    subjects?: ISubjectStats[];
 }
 
 export default function CountdownDisplay() {
     const [timeLeft, setTimeLeft] = useState<ITimeLeft>(() => {
         const t = getRemainingSchoolTime();
-        return { ...t, progress: getSchoolYearProgress(t.remainingMs || 0) };
+        return {
+            ...t,
+            progress: getSchoolYearProgress(t.remainingMs || 0),
+            subjects: getSubjectStats()
+        };
     });
 
     useEffect(() => {
         const timer = setInterval(() => {
             const remaining = getRemainingSchoolTime();
-            setTimeLeft({ ...remaining, progress: getSchoolYearProgress(remaining.remainingMs || 0) });
+            setTimeLeft({
+                ...remaining,
+                progress: getSchoolYearProgress(remaining.remainingMs || 0),
+                subjects: getSubjectStats()
+            });
 
             if (remaining.isComplete) {
                 clearInterval(timer);
@@ -73,7 +88,7 @@ export default function CountdownDisplay() {
                 </div>
             </div>
 
-            <div className="bg-gray-100 dark:bg-gray-800/50 p-6 md:p-10 rounded-3xl backdrop-blur-md">
+            <div className="bg-gray-100 dark:bg-gray-800/50 p-6 md:p-10 rounded-3xl backdrop-blur-md w-full max-w-4xl">
                 <h2 className="text-lg md:text-xl text-gray-500 dark:text-gray-400 mb-4 font-semibold uppercase tracking-wider">
                     Tiempo de Clase Restante
                 </h2>
@@ -96,6 +111,36 @@ export default function CountdownDisplay() {
                         </span>
                         <span className="text-xs md:text-sm text-gray-400 uppercase font-bold mt-2">Segundos</span>
                     </div>
+                </div>
+            </div>
+
+            {/* Subject Grid */}
+            <div className="mt-12 w-full max-w-6xl px-4">
+                <h2 className="text-2xl font-bold text-white mb-8">Desglose por Asignatura</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {timeLeft.subjects?.map((sub: ISubjectStats) => (
+                        <div key={sub.subject} className="bg-gray-900 border border-gray-800 rounded-2xl p-6 relative overflow-hidden group hover:border-blue-500/30 transition-colors">
+                            <div className="flex justify-between items-end mb-4">
+                                <div>
+                                    <h3 className="text-xl font-bold text-gray-200">{sub.subject}</h3>
+                                    <p className="text-sm text-gray-500">Horas restantes</p>
+                                </div>
+                                <span className="text-4xl font-bold text-blue-500 tabular-nums">
+                                    {sub.remainingHours}
+                                </span>
+                            </div>
+
+                            <div className="h-2 w-full bg-gray-800 rounded-full overflow-hidden">
+                                <div
+                                    className="h-full bg-gradient-to-r from-blue-600 to-blue-400"
+                                    style={{ width: `${sub.progress}%` }}
+                                />
+                            </div>
+                            <div className="text-right mt-1">
+                                <span className="text-xs text-gray-500 font-mono">{sub.progress.toFixed(1)}% completado</span>
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </div>
 

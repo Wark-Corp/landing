@@ -170,3 +170,160 @@ export const getSchoolYearProgress = (remainingMs: number) => {
     const elapsed = TOTAL_YEAR_MS - remainingMs;
     return (elapsed / TOTAL_YEAR_MS) * 100;
 };
+
+// --- SUBJECT SCHEDULE LOGIC ---
+
+type Subject = 'Lengua' | 'Ed. Física' | 'Digitalización' | 'Tecnología' | 'Inglés' | 'Matemáticas' | 'Historia' | 'Física y Química' | 'Religión' | 'Cultura Clásica' | 'Tutoría' | string;
+
+interface TimeSlot {
+    start: [number, number]; // [Hour, Minute]
+    end: [number, number];
+    subject: Subject;
+}
+
+// 0: Mon, 1: Tue, ... 4: Fri
+// Based on provided image
+const SCHEDULE: Record<number, TimeSlot[]> = {
+    1: [ // Mondy
+        { start: [8, 15], end: [9, 15], subject: 'Lengua' },
+        { start: [9, 15], end: [10, 15], subject: 'Ed. Física' },
+        { start: [10, 15], end: [11, 15], subject: 'Digitalización' },
+        { start: [11, 45], end: [12, 40], subject: 'Tecnología' },
+        { start: [12, 40], end: [13, 35], subject: 'Inglés' },
+        { start: [13, 35], end: [14, 30], subject: 'Matemáticas' },
+    ],
+    2: [ // Tuesday
+        { start: [8, 15], end: [9, 15], subject: 'Historia' },
+        { start: [9, 15], end: [10, 15], subject: 'Inglés' },
+        { start: [10, 15], end: [11, 15], subject: 'Física y Química' },
+        { start: [11, 45], end: [12, 40], subject: 'Lengua' },
+        { start: [12, 40], end: [13, 35], subject: 'Matemáticas' },
+        { start: [13, 35], end: [14, 30], subject: 'Digitalización' },
+    ],
+    3: [ // Wednesday
+        { start: [8, 15], end: [9, 15], subject: 'Historia' },
+        { start: [9, 15], end: [10, 15], subject: 'Religión' },
+        { start: [10, 15], end: [11, 15], subject: 'Tecnología' },
+        { start: [11, 45], end: [12, 40], subject: 'Matemáticas' },
+        { start: [12, 40], end: [13, 35], subject: 'Física y Química' },
+        { start: [13, 35], end: [14, 30], subject: 'Lengua' },
+    ],
+    4: [ // Thursday
+        { start: [8, 15], end: [9, 15], subject: 'Cultura Clásica' },
+        { start: [9, 15], end: [10, 15], subject: 'Ed. Física' },
+        { start: [10, 15], end: [11, 15], subject: 'Tutoría' },
+        { start: [11, 45], end: [12, 40], subject: 'Religión' },
+        { start: [12, 40], end: [13, 35], subject: 'Lengua' },
+        { start: [13, 35], end: [14, 30], subject: 'Digitalización' },
+    ],
+    5: [ // Friday
+        { start: [8, 15], end: [9, 15], subject: 'Cultura Clásica' },
+        { start: [9, 15], end: [10, 15], subject: 'Historia' },
+        { start: [10, 15], end: [11, 15], subject: 'Matemáticas' },
+        { start: [11, 45], end: [12, 40], subject: 'Física y Química' },
+        { start: [12, 40], end: [13, 35], subject: 'Tecnología' },
+        { start: [13, 35], end: [14, 30], subject: 'Inglés' },
+    ],
+};
+
+const getMinutes = (start: [number, number], end: [number, number]): number => {
+    return (end[0] * 60 + end[1]) - (start[0] * 60 + start[1]);
+};
+
+// Calculate total minutes per subject for the WHOLE YEAR
+const TOTAL_SUBJECT_MINUTES: Record<string, number> = {};
+
+const calculateTotalSubjectMinutes = () => {
+    const iter = new Date(SCHOOL_START_DATE);
+    const end = new Date(SCHOOL_END_DATE);
+
+    while (iter <= end) {
+        if (isSchoolDay(iter)) {
+            const dayOfWeek = iter.getDay(); // 1=Mon, 5=Fri
+            if (SCHEDULE[dayOfWeek]) {
+                SCHEDULE[dayOfWeek].forEach(slot => {
+                    const duration = getMinutes(slot.start, slot.end);
+                    TOTAL_SUBJECT_MINUTES[slot.subject] = (TOTAL_SUBJECT_MINUTES[slot.subject] || 0) + duration;
+                });
+            }
+        }
+        iter.setDate(iter.getDate() + 1);
+    }
+};
+
+calculateTotalSubjectMinutes();
+
+export const getSubjectStats = () => {
+    const now = new Date();
+    // Start count from tomorrow, adding today's remaining part if applicable is complex.
+    // For simplicity and performance, we'll iterate from "now" until end.
+
+    // Optimization: Calculate "Remaining Minutes"
+    const remainingMinutes: Record<string, number> = {};
+
+    // Initialize
+    Object.keys(TOTAL_SUBJECT_MINUTES).forEach(s => remainingMinutes[s] = 0);
+
+    if (now >= SCHOOL_END_DATE) {
+        // All 0
+        return Object.keys(TOTAL_SUBJECT_MINUTES).map(subject => ({
+            subject,
+            remainingHours: 0,
+            progress: 100
+        }));
+    }
+
+    const iter = new Date(now);
+    const end = new Date(SCHOOL_END_DATE);
+
+    // Handle Today specially?
+    // If today is school day, check slots that haven't passed
+    if (isSchoolDay(iter)) {
+        const dayOfWeek = iter.getDay();
+        const currentTotalMinutes = iter.getHours() * 60 + iter.getMinutes();
+
+        if (SCHEDULE[dayOfWeek]) {
+            SCHEDULE[dayOfWeek].forEach(slot => {
+                const slotEndMinutes = slot.end[0] * 60 + slot.end[1];
+                const slotStartMinutes = slot.start[0] * 60 + slot.start[1];
+
+                if (currentTotalMinutes < slotStartMinutes) {
+                    // Full slot remaining
+                    remainingMinutes[slot.subject] = (remainingMinutes[slot.subject] || 0) + (slotEndMinutes - slotStartMinutes);
+                } else if (currentTotalMinutes < slotEndMinutes) {
+                    // Partial slot remaining
+                    remainingMinutes[slot.subject] = (remainingMinutes[slot.subject] || 0) + (slotEndMinutes - currentTotalMinutes);
+                }
+            });
+        }
+    }
+
+    // Start full days from tomorrow
+    iter.setDate(iter.getDate() + 1);
+    iter.setHours(0, 0, 0, 0);
+
+    while (iter <= end) {
+        if (isSchoolDay(iter)) {
+            const dayOfWeek = iter.getDay();
+            if (SCHEDULE[dayOfWeek]) {
+                SCHEDULE[dayOfWeek].forEach(slot => {
+                    remainingMinutes[slot.subject] = (remainingMinutes[slot.subject] || 0) + getMinutes(slot.start, slot.end);
+                });
+            }
+        }
+        iter.setDate(iter.getDate() + 1);
+    }
+
+    // Format output
+    return Object.keys(TOTAL_SUBJECT_MINUTES).map(subject => {
+        const total = TOTAL_SUBJECT_MINUTES[subject];
+        const remaining = remainingMinutes[subject] || 0;
+        const progress = total > 0 ? ((total - remaining) / total) * 100 : 100;
+
+        return {
+            subject,
+            remainingHours: Math.ceil(remaining / 60), // Show hours
+            progress
+        };
+    }).sort((a, b) => a.subject.localeCompare(b.subject));
+};
