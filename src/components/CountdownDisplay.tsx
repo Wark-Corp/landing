@@ -125,7 +125,7 @@ export default function CountdownDisplay() {
                                     <h3 className="text-xl font-bold text-gray-200">{sub.subject}</h3>
                                 </div>
                                 <span className="text-4xl font-bold text-blue-500 tabular-nums">
-                                    {sub.remainingHours}h
+                                    {sub.remainingHours.toFixed(1)}h
                                 </span>
                             </div>
 

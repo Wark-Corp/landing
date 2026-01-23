@@ -327,7 +327,7 @@ export const getSubjectStats = () => {
 
         return {
             subject,
-            remainingHours: Math.ceil(remaining / 60), // Show hours
+            remainingHours: remaining / 60, // Return precise float
             progress
         };
     }).sort((a, b) => a.subject.localeCompare(b.subject));
