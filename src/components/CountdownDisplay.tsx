@@ -55,7 +55,7 @@ export default function CountdownDisplay() {
                     ¡VACACIONES!
                 </h1>
                 <p className="text-2xl md:text-4xl text-gray-600 dark:text-gray-300">
-                    Disfruta del verano 🏖️
+                    Disfruta del verano
                 </p>
             </div>
         );
@@ -68,7 +68,7 @@ export default function CountdownDisplay() {
                     {timeLeft.days}
                 </h1>
                 <p className="text-2xl md:text-4xl text-gray-500 dark:text-gray-400 uppercase tracking-widest font-bold">
-                    Días Lectivos Restantes
+                    Días Restantes
                 </p>
             </div>
 
@@ -90,7 +90,7 @@ export default function CountdownDisplay() {
 
             <div className="bg-gray-100 dark:bg-gray-800/50 p-6 md:p-10 rounded-3xl backdrop-blur-md w-full max-w-4xl">
                 <h2 className="text-lg md:text-xl text-gray-500 dark:text-gray-400 mb-4 font-semibold uppercase tracking-wider">
-                    Tiempo de Clase Restante
+                    Tiempo Restante
                 </h2>
                 <div className="grid grid-cols-3 gap-8 md:gap-12">
                     <div className="flex flex-col">
@@ -116,7 +116,7 @@ export default function CountdownDisplay() {
 
             {/* Subject Grid */}
             <div className="mt-12 w-full max-w-6xl px-4">
-                <h2 className="text-2xl font-bold text-white mb-8">Desglose por Asignatura</h2>
+                <h2 className="text-2xl font-bold text-white mb-8">Asignaturas</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {timeLeft.subjects?.map((sub: ISubjectStats) => (
                         <div key={sub.subject} className="bg-gray-900 border border-gray-800 rounded-2xl p-6 relative overflow-hidden group hover:border-blue-500/30 transition-colors">
@@ -144,7 +144,7 @@ export default function CountdownDisplay() {
             </div>
 
             <p className="mt-12 text-sm text-gray-400 max-w-md mx-auto">
-                Calculado para días lectivos de Madrid (08:15 - 14:30), excluyendo festivos y fines de semana.
+                Calculado para días lectivos, excluyendo festivos y fines de semana.
             </p>
         </div>
     );
