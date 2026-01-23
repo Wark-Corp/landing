@@ -16,6 +16,9 @@ const HOLIDAYS = [
     '2026-01-01', // New Year
     '2026-01-06', // Epiphany
     '2026-03-19', // San José (Example)
+    '2026-03-30', // Holy Week - Monday
+    '2026-03-31', // Holy Week - Tuesday
+    '2026-04-01', // Holy Week - Wednesday
     '2026-04-02', // Maundy Thursday
     '2026-04-03', // Good Friday
     '2026-05-01', // Labor Day
