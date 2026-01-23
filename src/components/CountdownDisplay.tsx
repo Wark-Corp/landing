@@ -4,16 +4,26 @@ import { useEffect, useState } from 'react';
 
 import { getRemainingSchoolTime, getSchoolYearProgress } from '@/utils/schoolTimer';
 
+interface ITimeLeft {
+    days: number;
+    totalSchoolHours: number;
+    totalSchoolMinutes: number;
+    totalSchoolSeconds: number;
+    remainingMs?: number;
+    isComplete: boolean;
+    progress?: number;
+}
+
 export default function CountdownDisplay() {
-    const [timeLeft, setTimeLeft] = useState(() => {
+    const [timeLeft, setTimeLeft] = useState<ITimeLeft>(() => {
         const t = getRemainingSchoolTime();
-        return { ...t, progress: getSchoolYearProgress(t.remainingMs) };
+        return { ...t, progress: getSchoolYearProgress(t.remainingMs || 0) };
     });
 
     useEffect(() => {
         const timer = setInterval(() => {
             const remaining = getRemainingSchoolTime();
-            setTimeLeft({ ...remaining, progress: getSchoolYearProgress(remaining.remainingMs) });
+            setTimeLeft({ ...remaining, progress: getSchoolYearProgress(remaining.remainingMs || 0) });
 
             if (remaining.isComplete) {
                 clearInterval(timer);
@@ -52,12 +62,12 @@ export default function CountdownDisplay() {
                 <div className="h-4 w-full bg-gray-800 rounded-full overflow-hidden border border-gray-700">
                     <div
                         className="h-full bg-gradient-to-r from-blue-500 to-blue-900 transition-all duration-1000 ease-out"
-                        style={{ width: `${(timeLeft as any).progress || 0}%` }}
+                        style={{ width: `${timeLeft.progress || 0}%` }}
                     />
                 </div>
                 <div className="mt-4 text-center">
                     <span className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400">
-                        {((timeLeft as any).progress || 0).toFixed(4)}%
+                        {(timeLeft.progress || 0).toFixed(4)}%
                     </span>
                     <p className="text-xs text-gray-500 uppercase font-bold mt-1">Completado</p>
                 </div>
