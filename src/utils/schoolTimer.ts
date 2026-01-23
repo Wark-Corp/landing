@@ -46,6 +46,7 @@ export const getRemainingSchoolTime = () => {
             totalSchoolHours: 0,
             totalSchoolMinutes: 0,
             totalSchoolSeconds: 0,
+            remainingMs: 0,
             isComplete: true
         };
     }
@@ -133,6 +134,36 @@ export const getRemainingSchoolTime = () => {
         totalSchoolHours: Math.floor(totalSchoolMs / (1000 * 60 * 60)),
         totalSchoolMinutes: Math.floor((totalSchoolMs / (1000 * 60)) % 60),
         totalSchoolSeconds: Math.floor((totalSchoolMs / 1000) % 60),
+        remainingMs: totalSchoolMs,
         isComplete: false
     };
+};
+
+const SCHOOL_START_DATE = new Date('2025-09-08T08:15:00');
+
+// Calculate ONLY ONCE the total milliseconds of the entire school year for percentage
+const calculateTotalYearMs = () => {
+    let totalMs = 0;
+    const msPerSchoolDay = (SCHOOL_END_HOUR * 60 + SCHOOL_END_MINUTE - (SCHOOL_START_HOUR * 60 + SCHOOL_START_MINUTE)) * 60 * 1000;
+
+    // Iterate from Start to End
+    const iter = new Date(SCHOOL_START_DATE);
+    const end = new Date(SCHOOL_END_DATE);
+
+    while (iter <= end) {
+        if (isSchoolDay(iter)) {
+            totalMs += msPerSchoolDay;
+        }
+        iter.setDate(iter.getDate() + 1);
+    }
+    return totalMs;
+};
+
+const TOTAL_YEAR_MS = calculateTotalYearMs();
+
+export const getSchoolYearProgress = (remainingMs: number) => {
+    if (remainingMs <= 0) return 100;
+    if (remainingMs >= TOTAL_YEAR_MS) return 0;
+    const elapsed = TOTAL_YEAR_MS - remainingMs;
+    return (elapsed / TOTAL_YEAR_MS) * 100;
 };

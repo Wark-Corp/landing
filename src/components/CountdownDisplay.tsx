@@ -2,15 +2,18 @@
 
 import { useEffect, useState } from 'react';
 
-import { getRemainingSchoolTime } from '@/utils/schoolTimer';
+import { getRemainingSchoolTime, getSchoolYearProgress } from '@/utils/schoolTimer';
 
 export default function CountdownDisplay() {
-    const [timeLeft, setTimeLeft] = useState(getRemainingSchoolTime());
+    const [timeLeft, setTimeLeft] = useState(() => {
+        const t = getRemainingSchoolTime();
+        return { ...t, progress: getSchoolYearProgress(t.remainingMs) };
+    });
 
     useEffect(() => {
         const timer = setInterval(() => {
             const remaining = getRemainingSchoolTime();
-            setTimeLeft(remaining);
+            setTimeLeft({ ...remaining, progress: getSchoolYearProgress(remaining.remainingMs) });
 
             if (remaining.isComplete) {
                 clearInterval(timer);
@@ -42,6 +45,22 @@ export default function CountdownDisplay() {
                 <p className="text-2xl md:text-4xl text-gray-500 dark:text-gray-400 uppercase tracking-widest font-bold">
                     Días Lectivos Restantes
                 </p>
+            </div>
+
+            {/* Progress Bar Section */}
+            <div className="w-full max-w-2xl px-6 mb-12">
+                <div className="h-4 w-full bg-gray-800 rounded-full overflow-hidden border border-gray-700">
+                    <div
+                        className="h-full bg-gradient-to-r from-blue-500 to-blue-900 transition-all duration-1000 ease-out"
+                        style={{ width: `${(timeLeft as any).progress || 0}%` }}
+                    />
+                </div>
+                <div className="mt-4 text-center">
+                    <span className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400">
+                        {((timeLeft as any).progress || 0).toFixed(4)}%
+                    </span>
+                    <p className="text-xs text-gray-500 uppercase font-bold mt-1">Completado</p>
+                </div>
             </div>
 
             <div className="bg-gray-100 dark:bg-gray-800/50 p-6 md:p-10 rounded-3xl backdrop-blur-md">
