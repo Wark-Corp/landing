@@ -33,7 +33,7 @@ export default function CountDownPage() {
             <div className="w-full max-w-md">
                 <div className="text-center mb-10">
                     <h1 className="text-4xl font-bold font-manrope text-foreground mb-2">Acceso Restringido</h1>
-                    <p className="text-gray-500">Introduce la contraseña para ver la cuenta atrás.</p>
+                    <p className="text-red-500">Introduce la contraseña para ver la cuenta atrás.</p>
                 </div>
 
                 <form onSubmit={handleLogin} className="space-y-4">
